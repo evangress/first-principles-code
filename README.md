@@ -358,6 +358,8 @@ first-principles-code/
 ├── tests/               # pytest suite (uv run pytest)
 ├── pyproject.toml       # project metadata & dependencies
 ├── SPEC.md              # full project design spec
+├── CONTRIBUTOR.md       # how to contribute
+├── LICENSE              # Apache 2.0
 └── README.md            # you are here
 ```
 
@@ -388,10 +390,21 @@ uv run gui.py
 
 ---
 
-## Conventions for contributors
+## Contributing
+
+Contributions are welcome — this is a teaching template, so clear,
+well-explained code is the product. See [CONTRIBUTOR.md](CONTRIBUTOR.md) for the
+development setup, coding conventions, and how to submit changes.
+
+Quick version of the conventions:
 
 - Pass arguments **by keyword** (`acceleration=9.81`, not `9.81`). Methods use
   keyword-only signatures (`def method(self, *, ...)`) to enforce this.
 - Every class and method gets a **docstring** with parameter units.
 - Comment the **why** of non-obvious math, not just the what.
 - Keep one engineering domain per file, one class per file.
+- Every new method/class needs a test.
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE). © 2026 Evan Gress.

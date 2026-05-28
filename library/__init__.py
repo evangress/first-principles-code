@@ -31,6 +31,10 @@ from library.mechatronics import Mechatronics
 from library.controls import Controls
 from library.utility import Utility
 
+# Unit-aware modelling: the shared Pint registry and the Beam dataclass.
+from library.units import ureg, Q_
+from library.beam import Beam
+
 __all__ = [
     "Dynamics",
     "Statics",
@@ -43,4 +47,7 @@ __all__ = [
     "Mechatronics",
     "Controls",
     "Utility",
+    "Beam",
+    "ureg",
+    "Q_",
 ]

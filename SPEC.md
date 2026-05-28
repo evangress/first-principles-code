@@ -64,14 +64,15 @@ visualize, and trust." Listed roughly in order of payoff. Items marked
    curve fitting to test data (`optimize.curve_fit`), general ODE simulation
    (`integrate.solve_ivp`, the principled version of the Euler loop in
    `controls.py`), and interpolation (`scipy.interpolate`).
-4. **Physical units with Pint** — quantities that carry units, auto-convert,
-   and raise if you add metres to seconds. Guards against unit-mismatch errors
-   that plain floats cannot catch.
-5. **Type hints and dataclasses** — annotate units/types on signatures so the
-   editor catches mistakes; model entities (e.g. `Beam(length, area, modulus)`)
-   as `@dataclass` objects instead of passing loose floats.
-6. **Error handling and input validation** — `raise ValueError(...)` for bad
-   inputs (negative area, etc.) and `try/except` to fail loudly and clearly.
+4. **Physical units with Pint (done)** — quantities that carry units,
+   auto-convert, and raise if you add metres to seconds. The shared registry
+   lives in `library/units.py`; `library/beam.py` uses it. Guards against
+   unit-mismatch errors that plain floats cannot catch.
+5. **Type hints and dataclasses (done)** — annotate units/types on signatures
+   so the editor catches mistakes; model entities as `@dataclass` objects
+   instead of passing loose floats. See `Beam` in `library/beam.py`.
+6. **Error handling and input validation (done)** — `raise ValueError(...)` for
+   bad inputs (wrong units, negative dimensions); see `Beam.__post_init__`.
 7. **Testing with pytest (done)** — pure-function methods checked against known
    textbook answers (`tests/`), so the library can be refactored fearlessly.
 8. **Data handling with pandas** — reading sensor logs / material-property

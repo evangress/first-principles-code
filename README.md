@@ -204,6 +204,41 @@ kelvin = list(map(lambda c: c + 273.15, celsius))   # [273.15, 298.15, 373.15]
 
 ---
 
+## Modelling things with units: the `Beam` dataclass
+
+`library/beam.py` shows how to model a real object as a `@dataclass` whose
+fields carry **physical units** (via [Pint](https://pint.readthedocs.io/)).
+A `Beam` knows its own geometry and computes its structural behaviour — and the
+units make the math self-checking.
+
+```python
+from library.units import Q_       # Q_(value, "unit") builds a quantity
+from library.beam import Beam
+
+beam = Beam(
+    length=Q_(2.0, "m"),
+    width=Q_(50, "mm"),
+    height=Q_(100, "mm"),
+    modulus=Q_(200, "GPa"),         # defaults to structural steel if omitted
+)
+
+beam.moment_of_inertia.to("mm**4")                       # 4.17e6 mm^4
+beam.mass.to("kg")                                       # 78.5 kg
+beam.max_deflection_point_load(load=Q_(5, "kN")).to("mm")    # 1.0 mm
+beam.max_bending_stress_point_load(load=Q_(5, "kN")).to("MPa")  # 30 MPa
+beam.euler_buckling_load().to("kN")                      # 514 kN
+```
+
+Why units are worth it:
+
+```python
+Q_(1, "m") + Q_(1, "s")          # raises DimensionalityError - caught, not silent
+Beam(length=Q_(2, "s"), ...)     # raises ValueError - a time is not a length
+```
+
+All quantities must come from the **one shared registry** in
+`library/units.py` (Pint cannot combine quantities from different registries).
+
 ## Tests
 
 The library methods are pure functions with known textbook answers, which makes
@@ -279,6 +314,8 @@ first-principles-code/
 ├── gui.py               # MATLAB-style console GUI (uv run gui.py)
 ├── library/             # one class per engineering domain
 │   ├── __init__.py      # re-exports every class
+│   ├── units.py         # shared Pint unit registry (ureg, Q_)
+│   ├── beam.py          # unit-aware Beam dataclass
 │   ├── utility.py       # JSON/CSV/file-picker helpers
 │   ├── dynamics.py
 │   ├── statics.py

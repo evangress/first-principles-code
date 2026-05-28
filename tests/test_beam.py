@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for the unit-aware Beam dataclass (library.beam.Beam).
 
 Shows how to test code that uses Pint: do the math in known units, then call

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for library.thermo.Thermo and library.fluids.Fluids."""
 
 import pytest

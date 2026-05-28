@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """statics.py - equilibrium and load analysis for bodies at rest.
 
 Statics is dynamics with everything standing still: the sum of forces and the

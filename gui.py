@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """gui.py - a small MATLAB/Maplesoft-style console for this project.
 
 Run it with::

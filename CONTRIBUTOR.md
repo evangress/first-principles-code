@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- Copyright 2026 Evan Gress -->
+
 # Contributing to First Principles Code
 
 Thanks for your interest in contributing! This project is a **teaching

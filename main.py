@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """main.py - First Principles Code: displacement from acceleration & velocity.
 
 This script is the "hello world" of engineering kinematics. It answers a

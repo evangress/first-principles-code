@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """controls.py - feedback control calculations (P, PD, PID).
 
 Control theory keeps systems on target despite disturbances. These helpers

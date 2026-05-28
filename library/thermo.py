@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """thermo.py - thermodynamics calculations.
 
 Thermodynamics tracks energy as it moves between heat and work. These helpers

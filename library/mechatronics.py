@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """mechatronics.py - mechatronics and motion-system calculations.
 
 Mechatronics blends mechanical, electrical, and control engineering. These

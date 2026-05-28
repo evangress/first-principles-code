@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """beam.py - a unit-aware Beam dataclass.
 
 This module shows two ideas working together:

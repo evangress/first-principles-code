@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """units.py - one shared Pint unit registry for the whole project.
 
 Pint attaches physical units to numbers, so ``5 * meter`` knows it is a length,

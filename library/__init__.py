@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """First Principles Code engineering library.
 
 Each module in this package holds one class for one engineering domain. Import

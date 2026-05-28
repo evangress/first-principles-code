@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """electrical.py - electrical engineering calculations.
 
 Covers the fundamentals of circuits: Ohm's law, electrical power, series and

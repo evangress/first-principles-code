@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for library.modal.Modal and library.controls.Controls.
 
 Shows how to test code that returns numpy arrays (check the shape and a few

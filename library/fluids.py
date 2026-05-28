@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """fluids.py - fluid dynamics calculations.
 
 Fluid mechanics governs anything that flows: pipes, pumps, wings, and weather.

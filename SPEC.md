@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- Copyright 2026 Evan Gress -->
+
 # First Principles Code — Project Spec
 
 A Github repo that provides a template Python script and class library that functionally teaches engineers to use the Python programming techniques and empowers them to solve real world engineering problems with the Python programming language.

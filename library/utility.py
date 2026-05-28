@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """utility.py - cross-cutting helper methods.
 
 The Utility class collects the "plumbing" every engineering script needs but

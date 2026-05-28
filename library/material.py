@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """material.py - material science and strength of materials.
 
 This class covers how materials deform and fail under load: Hooke's law, the

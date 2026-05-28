@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """dynamics.py - kinematics and rigid-body dynamics calculations.
 
 Dynamics is the study of motion and the forces that cause it. This class

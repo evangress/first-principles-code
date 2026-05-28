@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for library.dynamics.Dynamics.
 
 These tests double as a pytest tutorial. Notice three ideas:

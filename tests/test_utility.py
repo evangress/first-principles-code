@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for library.utility.Utility.
 
 Demonstrates pytest's ``tmp_path`` fixture: pytest hands each test a unique,

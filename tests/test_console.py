@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """Tests for the GUI's evaluation engine (gui.Session).
 
 The console's logic is deliberately separated from its tkinter widgets, so we

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """gear.py - gear, gear-pair, and powertrain calculations.
 
 Gears trade speed for torque (and back). These helpers cover the geometry of a

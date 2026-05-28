@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Evan Gress
+
 """modal.py - classical vibration and modal analysis.
 
 Vibration analysis predicts how structures and machines oscillate. These

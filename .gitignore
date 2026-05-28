@@ -180,3 +180,5 @@ cython_debug/
 # Generated figures from main.py
 displacement.png
 *.png
+# ...but keep the committed GitHub social-preview card
+!.github/social-preview.png

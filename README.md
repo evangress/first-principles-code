@@ -27,8 +27,11 @@ itself doubles as a reference you can read and learn from.
 # 1. Install dependencies into a project virtual environment
 uv sync
 
-# 2. Run the displacement demo
+# 2. Run the displacement demo (prints results and saves displacement.png)
 uv run main.py
+
+# 3. Run the test suite
+uv run pytest
 ```
 
 Expected output:
@@ -201,6 +204,26 @@ kelvin = list(map(lambda c: c + 273.15, celsius))   # [273.15, 298.15, 373.15]
 
 ---
 
+## Tests
+
+The library methods are pure functions with known textbook answers, which makes
+them ideal to test. The suite in `tests/` doubles as a pytest tutorial — it
+demonstrates `pytest.approx` (comparing floats), `@pytest.mark.parametrize`
+(table-driven tests), and the `tmp_path` fixture (temporary files).
+
+```bash
+uv run pytest                       # run everything (40+ tests)
+uv run pytest tests/test_dynamics.py   # run one file
+uv run pytest -k projectile            # run tests whose name matches "projectile"
+```
+
+## Plotting
+
+`main.py` uses **matplotlib** to plot the acceleration -> velocity -> position
+cascade and saves it to `displacement.png`. The pattern — compute arrays with
+NumPy/SciPy, then visualize with matplotlib — is the everyday replacement for
+MATLAB's figures. See `plot_motion()` in `main.py` for a worked example.
+
 ## Python packages for science, engineering & data work
 
 | Package | Use it for |
@@ -267,6 +290,7 @@ first-principles-code/
 │   ├── electrical.py
 │   ├── mechatronics.py
 │   └── controls.py
+├── tests/               # pytest suite (uv run pytest)
 ├── pyproject.toml       # project metadata & dependencies
 ├── SPEC.md              # full project design spec
 └── README.md            # you are here

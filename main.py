@@ -28,6 +28,11 @@ import math
 import numpy as np
 from scipy import integrate
 
+# ``matplotlib`` turns result arrays into figures - the engineering deliverable.
+# pyplot is its MATLAB-style interface; if no screen is available it quietly
+# falls back to a file-only backend, so saving a PNG always works.
+import matplotlib.pyplot as plt
+
 # --- Project library --------------------------------------------------------
 # Our own dynamics helpers live in ./library. This is how you import a class
 # you wrote yourself and reuse it across scripts.
@@ -51,6 +56,44 @@ def analytical_displacement(*, initial_position, initial_velocity, acceleration,
     :returns: position x at time t [m]
     """
     return initial_position + initial_velocity * time + 0.5 * acceleration * time ** 2
+
+
+def plot_motion(*, time, acceleration, velocity, position, save_path="displacement.png"):
+    """Plot the acceleration -> velocity -> position cascade and save a figure.
+
+    Three stacked subplots make the core idea visible: integrating acceleration
+    gives velocity, and integrating velocity gives position. This is the kind of
+    figure you would produce in MATLAB, done here with matplotlib.
+
+    :param time: time array t [s]
+    :param acceleration: acceleration array a(t) [m/s^2]
+    :param velocity: velocity array v(t) [m/s]
+    :param position: position array x(t) [m]
+    :param save_path: file to write the figure to, defaults to displacement.png
+    :returns: the path the figure was saved to
+    """
+    # One figure, three rows that share the same x-axis (time).
+    figure, (ax_a, ax_v, ax_x) = plt.subplots(3, 1, sharex=True, figsize=(8, 7))
+
+    ax_a.plot(time, acceleration, color="tab:red")
+    ax_a.set_ylabel("a(t) [m/s$^2$]")
+    ax_a.set_title("Integrating acceleration -> velocity -> position")
+
+    ax_v.plot(time, velocity, color="tab:green")
+    ax_v.set_ylabel("v(t) [m/s]")
+
+    ax_x.plot(time, position, color="tab:blue")
+    ax_x.set_ylabel("x(t) [m]")
+    ax_x.set_xlabel("time [s]")
+
+    # A light grid on every panel makes values easier to read off.
+    for axis in (ax_a, ax_v, ax_x):
+        axis.grid(True, alpha=0.3)
+
+    figure.tight_layout()
+    figure.savefig(save_path, dpi=120)
+    plt.close(figure)  # free the figure's memory; we only needed the file
+    return save_path
 
 
 def main():
@@ -129,6 +172,15 @@ def main():
     print(f"     -> numerical vs exact err : {abs(x_numeric_const - x_exact):.2e} m\n")
     print(f"  3. scipy (a = g + 2*sin(t))  : {x_numeric_varying:10.4f} m")
     print("     (no simple closed form - this is why we integrate numerically)")
+
+    # Visualize the time-varying case: plot how a, v, and x evolve together.
+    figure_path = plot_motion(
+        time=t,
+        acceleration=a_varying,
+        velocity=v_varying,
+        position=x_varying,
+    )
+    print(f"\n  Saved motion plot to: {figure_path}")
 
 
 # This guard means main() runs when you execute the file directly, but NOT

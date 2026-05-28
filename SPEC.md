@@ -46,3 +46,37 @@ Initial class list:
 - Provide examples of conditional program flow control and loop structures
 - Provide a few examples of how to create and use lambda functions
 - Provide a simple tkinter GUI script that can run scripts and record and export results that provides an interface that provides similar functionality to that of MATLAB or Maplesoft
+
+## Python concepts to teach (roadmap)
+
+Beyond the core library, these are the Python concepts that most help an
+engineer move from "a single formula" to "a real workflow they can compute,
+visualize, and trust." Listed roughly in order of payoff. Items marked
+**(done)** are already in the project.
+
+1. **NumPy array thinking / vectorization** — operating on whole arrays instead
+   of looping element by element; broadcasting and boolean masking
+   (`stress[stress > yield_strength]`). The biggest shift coming from MATLAB.
+2. **Plotting with matplotlib (done)** — turning result arrays into figures
+   (`main.py` plots position/velocity/acceleration vs time and saves a PNG).
+   The figure is usually the real engineering deliverable.
+3. **The wider SciPy toolbox** — root finding (`optimize.brentq`, `fsolve`),
+   curve fitting to test data (`optimize.curve_fit`), general ODE simulation
+   (`integrate.solve_ivp`, the principled version of the Euler loop in
+   `controls.py`), and interpolation (`scipy.interpolate`).
+4. **Physical units with Pint** — quantities that carry units, auto-convert,
+   and raise if you add metres to seconds. Guards against unit-mismatch errors
+   that plain floats cannot catch.
+5. **Type hints and dataclasses** — annotate units/types on signatures so the
+   editor catches mistakes; model entities (e.g. `Beam(length, area, modulus)`)
+   as `@dataclass` objects instead of passing loose floats.
+6. **Error handling and input validation** — `raise ValueError(...)` for bad
+   inputs (negative area, etc.) and `try/except` to fail loudly and clearly.
+7. **Testing with pytest (done)** — pure-function methods checked against known
+   textbook answers (`tests/`), so the library can be refactored fearlessly.
+8. **Data handling with pandas** — reading sensor logs / material-property
+   tables from CSV/Excel, filtering, grouping, and exporting results.
+
+Smaller but useful: `@property` / `@staticmethod` for richer class design,
+list/dict comprehensions, `enum` for fixed choices (e.g. material types),
+context managers (`with`) for resources, and f-string formatting for reports.
